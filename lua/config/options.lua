@@ -13,3 +13,6 @@ vim.opt.listchars = {
   nbsp     = "␣",   -- show non-breaking spaces
 }
 
+-- Disable LazyVim auto cwd change
+vim.g.root_spec = { "cwd" }
+
