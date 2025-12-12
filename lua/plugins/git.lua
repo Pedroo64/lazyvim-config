@@ -1,13 +1,14 @@
 return {
-  "lewis6991/gitsigns.nvim",
-  opts = {
-    current_line_blame = true,
-    on_attach = function(buffer)
-      local gs = package.loaded.gitsigns
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true,
+      on_attach = function(buffer)
+        local gs = package.loaded.gitsigns
 
-      local function map(mode, l, r, desc)
-        vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc, silent = true })
-      end
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc, silent = true })
+        end
 
       -- stylua: ignore start
       map("n", "]h", function()
@@ -37,6 +38,31 @@ return {
       map("n", "<leader>ghd", gs.diffthis, "Diff This")
       map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
       map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
-    end,
+      end,
+    },
+  },
+  {
+    "sindrets/diffview.nvim",
+    opts = {
+      view = {
+        merge_tool = {
+          layout = "diff1_plain",
+        },
+      },
+    },
+  },
+  {
+    "NeogitOrg/neogit",
+    lazy = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    cmd = "Neogit",
+    keys = {
+      -- stylua: ignore
+      { "<leader>gn", "<cmd>Neogit<cr>", desc = "Open Neogit", },
+    },
   },
 }
