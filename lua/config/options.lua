@@ -11,6 +11,7 @@ vim.opt.listchars = {
   extends  = "→",   -- show when text extends past screen
   precedes = "←",   -- show when text precedes screen
   nbsp     = "␣",   -- show non-breaking spaces
+  eol      = "↴",   -- show end of line
 }
 
 -- Disable LazyVim auto cwd change
