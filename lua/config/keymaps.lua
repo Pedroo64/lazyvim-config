@@ -7,4 +7,3 @@ vim.keymap.set("x", "P", "\"_dP")
 
 -- Terminal
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
-
