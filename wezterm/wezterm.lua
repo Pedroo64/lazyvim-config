@@ -34,16 +34,19 @@ config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 120
 config.initial_rows = 28
 
--- or, changing the font size and color scheme.
-config.font_size = 12
-
 if wezterm.gui.get_appearance():find("Dark") then
   config.color_scheme = "Catppuccin Macchiato"
 else
   config.color_scheme = "Catppuccin Latte"
 end
 
-config.font = wezterm.font("Maple Mono Normal NL NF")
+config.font = wezterm.font {
+  family = "Maple Mono Normal NL NF",
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+}
+
+-- config.font = wezterm.font("Maple Mono Normal NL NF")
+-- config.harfbuzz_features = { "zero" }
 
 -- Finally, return the configuration to wezterm:
 return config
