@@ -8,7 +8,7 @@ return {
     { "<leader>fO", function () require("oil").open(vim.uv.cwd()) end, desc = "Open Oil explorer (cwd)" },
   },
   opts = {
-    default_file_explorer = false,
+    default_file_explorer = true,
     columns = {
       "icon",
       "permissions",
