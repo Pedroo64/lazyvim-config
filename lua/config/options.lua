@@ -18,3 +18,6 @@ vim.opt.listchars = {
 vim.g.root_spec = { "cwd" }
 
 vim.opt.guicursor = ""
+
+-- Disable snacks animations
+vim.g.snacks_animate = false
